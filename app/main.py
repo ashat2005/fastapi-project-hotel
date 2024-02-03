@@ -13,7 +13,7 @@ class HotelSearcArgs:
         date_to : date,
         has_spa : Optional[bool] = None,
         stars : Optional[int] = Query(None, ge=1, le=5),        
-    ):
+):
         self.location = location
         self.date_from = date_from
         self.date_to = date_to
@@ -22,9 +22,9 @@ class HotelSearcArgs:
 
 @app.get("/hotels")
 def get_hotels( 
-    search_args = HotelSearcArgs = Depends()
-) :
-    return  search_args
+    search_args: HotelSearcArgs = Depends()
+):
+    return search_args
 
 class SBooking(BaseModel):
     room_id : int
